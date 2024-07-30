@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: black;
+        color: black;
+      }
+      .box {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+      }
+      .box:hover {
+        height: 400px;
+        transition: 0.5s;
+      }
+
+      .box .img-box {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .box .img-box img {
+        max-width: 100%;
+        opacity: 0.1;
+      }
+
+      .box:hover .img-box img {
+        opacity: 1;
+        transition: 0.5s;
+      }
+      .box::before {
+        content: "";
+        position: absolute;
+        background-color: white;
+        top: -2px;
+        bottom: -2px;
+        right: -2px;
+        left: -2px;
+        z-index: -1;
+      }
+      .box::after {
+        content: "";
+        position: absolute;
+        background-color: white;
+        top: -2px;
+        bottom: -2px;
+        right: -2px;
+        left: -2px;
+        z-index: -2;
+        filter: blur(40px);
+      }
+      .box::before,
+      .box::after {
+        background: linear-gradient(brown, red, orange);
+      }
+
+      .box .content {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        height: 90px;
+        opacity: 0;
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        transition: 0.5s;
+      }
+
+      .box:hover .content {
+        opacity: 1;
+      }
+      /* Added CSS for smaller text */
+      .content p {
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="img-box">
+        <img src="profile-pic.png" alt="" />
+      </div>
+      <div class="content">
+        <h2>Shashika Jayathilaka</h2>
+        <p>Electronics and Telecommunication Engineer</p>
+      </div>
+    </div>
+  </body>
+</html>
